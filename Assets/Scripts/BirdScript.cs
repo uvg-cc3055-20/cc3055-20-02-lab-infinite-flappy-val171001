@@ -6,14 +6,14 @@ public class BirdScript : MonoBehaviour {
 
     public float jumpForce = 200f;
     private Rigidbody2D rb;
-
+    public Sprite deadBird;
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
 		rb.freezeRotation = true;
 	}
 	
 	void Update () {
-        if(GameController.instance.gameOver == false)
+        if (GameController.instance.gameOver == false)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -30,5 +30,6 @@ public class BirdScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameController.instance.gameOver = true;
+        this.GetComponent<SpriteRenderer>().sprite = deadBird;
     }
 }
