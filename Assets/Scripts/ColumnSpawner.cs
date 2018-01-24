@@ -17,14 +17,19 @@ public class ColumnSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameController.instance.gameOver == false)
+        {
+            if (elapsedTime < spawnTime)
+            {
+                elapsedTime += Time.deltaTime;
+            }
+            else
+            {
+                float random = Random.Range(-2f, 2f);
+                Instantiate(column, new Vector3(8, random, 0), Quaternion.identity);
+                elapsedTime = 0;
+            }
 
-		if (elapsedTime < spawnTime) {
-			elapsedTime += Time.deltaTime;
-		} else {
-			float random = Random.Range (-2f, 2f);
-			Instantiate (column, new Vector3 (8, random, 0), Quaternion.identity);
-			elapsedTime = 0;
-		}
-
+        }
 	}
 }

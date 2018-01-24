@@ -13,14 +13,15 @@ public class ScrollingBackground2 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		// Move scene forward
-		transform.Translate (Vector3.left * scrolLingSpeed * Time.deltaTime);
+        if(GameController.instance.gameOver == false){
+            // Move scene forward
+            transform.Translate(Vector3.left * scrolLingSpeed * Time.deltaTime);
 
-		// Infinite scene
-		if (transform.position.x < -20f) {
-			transform.position = new Vector3 (20f, transform.position.y, transform.position.z);
-		}
-
+            // Infinite scene
+            if (transform.position.x < -20f) {
+                transform.position = new Vector3(20f, transform.position.y, transform.position.z);
+            }
+        }
 	}
 
 
