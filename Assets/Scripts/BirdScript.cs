@@ -9,6 +9,7 @@ public class BirdScript : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+		rb.freezeRotation = true;
 	}
 	
 	void Update () {
@@ -18,4 +19,14 @@ public class BirdScript : MonoBehaviour {
         }
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision){
+		if (collision.tag == "death") {
+			GameController.instance.gameOver = true;
+		} else {
+			GameController.instance.score++;
+			Debug.Log (GameController.instance.score);
+		}
+			
+
+	}
 }

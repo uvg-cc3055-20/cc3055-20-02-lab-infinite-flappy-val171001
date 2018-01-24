@@ -8,9 +8,9 @@ public class ScrollingBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		// Move scene forward
@@ -20,6 +20,7 @@ public class ScrollingBackground : MonoBehaviour {
 		if (transform.position.x < -20.4f) {
 			transform.position = new Vector3 (20.4f, transform.position.y, transform.position.z);
 		}
-		
+
 	}
+
 }
